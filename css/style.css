@@ -14,7 +14,8 @@
     --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.dark-theme {
+/* Переменные темы перенесены на body для правильного наследования цветов */
+body.dark-theme {
     --bg-main: #0b0f19;
     --bg-surface: #111827;
     --bg-card: #1f2937;
@@ -22,11 +23,11 @@
     --text-muted: #9ca3af;
     --border-color: rgba(255, 255, 255, 0.08);
     --header-blur-bg: rgba(11, 15, 25, 0.75);
-    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
-    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.3);
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.5);
 }
 
-.light-theme {
+body.light-theme {
     --bg-main: #f8fafc;
     --bg-surface: #ffffff;
     --bg-card: #ffffff;
@@ -49,15 +50,16 @@
 
 html {
     scroll-behavior: smooth;
-    font-family: var(--font-main);
-    background-color: var(--bg-main);
-    color: var(--text-main);
-    transition: background-color var(--transition-normal), color var(--transition-normal);
 }
 
 body {
+    font-family: var(--font-main);
+    background-color: var(--bg-main);
+    color: var(--text-main);
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
+    /* Плавная анимация смены цветов при переключении темы */
+    transition: background-color var(--transition-normal), color var(--transition-normal);
 }
 
 .container {
@@ -120,6 +122,7 @@ ul {
     background-color: var(--bg-card);
     color: var(--text-main);
     border: 1px solid var(--border-color);
+    transition: background-color var(--transition-normal), color var(--transition-normal), border-color var(--transition-normal), transform var(--transition-fast);
 }
 
 .btn-secondary:hover {
@@ -139,7 +142,7 @@ ul {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background var(--transition-fast);
+    transition: background var(--transition-fast), color var(--transition-normal);
 }
 
 .icon-btn:hover {
@@ -159,7 +162,7 @@ ul {
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border-color);
-    transition: background-color var(--transition-normal);
+    transition: background-color var(--transition-normal), border-color var(--transition-normal);
 }
 
 .nav-container {
@@ -179,6 +182,7 @@ ul {
     gap: 0.5rem;
     color: var(--text-main);
     letter-spacing: -0.02em;
+    transition: color var(--transition-normal);
 }
 
 .logo-icon {
@@ -214,6 +218,7 @@ ul {
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius-s);
     padding: 2px;
+    transition: background-color var(--transition-normal), border-color var(--transition-normal);
 }
 
 .lang-btn {
@@ -260,7 +265,9 @@ ul {
    ========================================================================== */
 .hero-section {
     padding: 11rem 0 7rem 0;
-    background: radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.08), transparent 45%);
+    background-color: var(--bg-main);
+    background-image: radial-gradient(circle at 50% 20%, rgba(59, 130, 246, 0.12), transparent 50%);
+    transition: background-color var(--transition-normal);
 }
 
 .hero-container {
@@ -291,6 +298,7 @@ ul {
     letter-spacing: -0.03em;
     margin-bottom: 1.5rem;
     color: var(--text-main);
+    transition: color var(--transition-normal);
 }
 
 .hero-description {
@@ -298,6 +306,7 @@ ul {
     line-height: 1.6;
     color: var(--text-muted);
     margin-bottom: 2.5rem;
+    transition: color var(--transition-normal);
 }
 
 .hero-cta {
@@ -311,6 +320,7 @@ ul {
    ========================================================================== */
 .services-section {
     background-color: var(--bg-surface);
+    transition: background-color var(--transition-normal);
 }
 
 .services-grid {
@@ -324,7 +334,7 @@ ul {
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius-m);
     padding: 2.25rem 2rem;
-    transition: all var(--transition-normal);
+    transition: background-color var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal), transform var(--transition-normal);
     box-shadow: var(--shadow-sm);
     text-align: left;
 }
@@ -332,13 +342,13 @@ ul {
 .service-card:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-md);
-    border-color: rgba(59, 130, 246, 0.25);
+    border-color: rgba(59, 130, 246, 0.3);
 }
 
 .service-icon-wrapper {
     width: 50px;
     height: 50px;
-    background-color: rgba(59, 130, 246, 0.1);
+    background-color: rgba(59, 130, 246, 0.15);
     border-radius: var(--border-radius-s);
     display: flex;
     align-items: center;
@@ -354,17 +364,24 @@ ul {
     margin-bottom: 0.75rem;
     letter-spacing: -0.01em;
     color: var(--text-main);
+    transition: color var(--transition-normal);
 }
 
 .service-card p {
     font-size: 0.95rem;
     line-height: 1.5;
     color: var(--text-muted);
+    transition: color var(--transition-normal);
 }
 
 /* ==========================================================================
    PRICING MANAGEMENT GRID INTERFACE
    ========================================================================== */
+.pricing-section {
+    background-color: var(--bg-main);
+    transition: background-color var(--transition-normal);
+}
+
 .pricing-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -381,7 +398,7 @@ ul {
     flex-direction: column;
     position: relative;
     box-shadow: var(--shadow-sm);
-    transition: transform var(--transition-normal), border var(--transition-normal);
+    transition: background-color var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal), transform var(--transition-normal);
     text-align: left;
 }
 
@@ -416,6 +433,7 @@ ul {
     font-weight: 700;
     margin-bottom: 1rem;
     color: var(--text-main);
+    transition: color var(--transition-normal);
 }
 
 .pricing-header .price {
@@ -423,12 +441,14 @@ ul {
     font-weight: 800;
     letter-spacing: -0.02em;
     color: var(--text-main);
+    transition: color var(--transition-normal);
 }
 
 .pricing-header .price span {
     font-size: 1.15rem;
     color: var(--text-muted);
     font-weight: 500;
+    transition: color var(--transition-normal);
 }
 
 .pricing-features {
@@ -444,6 +464,7 @@ ul {
     color: var(--text-muted);
     margin-bottom: 1rem;
     line-height: 1.4;
+    transition: color var(--transition-normal);
 }
 
 .pricing-features li i {
@@ -461,6 +482,7 @@ ul {
    ========================================================================== */
 .about-section {
     background-color: var(--bg-surface);
+    transition: background-color var(--transition-normal);
 }
 
 .about-grid {
@@ -487,6 +509,7 @@ ul {
     line-height: 1.2;
     margin-bottom: 1.5rem;
     color: var(--text-main);
+    transition: color var(--transition-normal);
 }
 
 .about-content p {
@@ -494,6 +517,7 @@ ul {
     line-height: 1.6;
     color: var(--text-muted);
     margin-bottom: 1.25rem;
+    transition: color var(--transition-normal);
 }
 
 .about-visual {
@@ -515,6 +539,7 @@ ul {
     color: rgba(59, 130, 246, 0.15);
     position: relative;
     overflow: hidden;
+    transition: background-color var(--transition-normal), border-color var(--transition-normal);
 }
 
 .tech-lines {
@@ -529,6 +554,11 @@ ul {
 /* ==========================================================================
    CONTACT DISPATCH INTERFACE DESIGN
    ========================================================================== */
+.contact-section {
+    background-color: var(--bg-main);
+    transition: background-color var(--transition-normal);
+}
+
 .contact-wrapper {
     max-width: 600px;
     margin: 0 auto;
@@ -537,6 +567,7 @@ ul {
     padding: 3.5rem 3rem;
     border-radius: var(--border-radius-m);
     box-shadow: var(--shadow-md);
+    transition: background-color var(--transition-normal), border-color var(--transition-normal);
 }
 
 .contact-form {
@@ -556,6 +587,7 @@ ul {
     font-size: 0.9rem;
     font-weight: 600;
     color: var(--text-main);
+    transition: color var(--transition-normal);
 }
 
 .form-group input, .form-group textarea {
@@ -566,14 +598,14 @@ ul {
     color: var(--text-main);
     font-size: 0.95rem;
     border-radius: var(--border-radius-s);
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-normal), border-color var(--transition-fast), color var(--transition-normal), box-shadow var(--transition-fast);
     width: 100%;
 }
 
 .form-group input:focus, .form-group textarea:focus {
     outline: none;
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
 }
 
 /* ==========================================================================
@@ -647,12 +679,14 @@ button:disabled {
     border-top: 1px solid var(--border-color);
     padding: 2.5rem 0;
     background-color: var(--bg-main);
+    transition: background-color var(--transition-normal), border-top-color var(--transition-normal);
 }
 
 .footer-container {
     text-align: center;
     font-size: 0.9rem;
     color: var(--text-muted);
+    transition: color var(--transition-normal);
 }
 
 /* ==========================================================================
@@ -682,7 +716,7 @@ button:disabled {
         flex-direction: column;
         padding: 3rem 2rem;
         gap: 2rem;
-        transition: left var(--transition-normal);
+        transition: left var(--transition-normal), background-color var(--transition-normal), border-color var(--transition-normal);
         border-top: 1px solid var(--border-color);
     }
     .nav-menu.active {
