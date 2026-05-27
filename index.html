@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixitium | Tietokoneapu & IT-tuki</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dark-theme">
+
+    <header class="main-header">
+        <nav class="nav-container">
+            <a href="#hero" class="logo">
+                <i class="fa-solid fa-screwdriver-wrench logo-icon"></i> Fixitium
+            </a>
+            
+            <ul class="nav-menu">
+                <li><a href="#services" class="nav-link" data-i18n="nav_services">Palvelut</a></li>
+                <li><a href="#pricing" class="nav-link" data-i18n="nav_pricing">Hinnasto</a></li>
+                <li><a href="#about" class="nav-link" data-i18n="nav_about">Meistä</a></li>
+                <li><a href="#contact" class="nav-link" data-i18n="nav_contact">Ota yhteyttä</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button id="theme-toggle" class="icon-btn" aria-label="Toggle Theme">
+                    <i class="fa-solid fa-sun"></i>
+                </button>
+                
+                <div class="lang-switcher">
+                    <button class="lang-btn active" data-lang="fi">FI</button>
+                    <button class="lang-btn" data-lang="ru">RU</button>
+                </div>
+
+                <button class="hamburger" aria-label="Open Menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero" class="hero-section">
+            <div class="container hero-container">
+                <div class="hero-content fade-in">
+                    <span class="hero-subtitle" data-i18n="hero_subtitle">Nopea & Luotettava IT-Tuki</span>
+                    <h1 class="hero-title" data-i18n="hero_title">Tietokoneesi kuntoon ilman stressiä</h1>
+                    <p class="hero-description" data-i18n="hero_desc">Ammattitaitoinen tietokonehuolto ja IT-tuki alueellasi. Korjaamme laitteet, optimoimme järjestelmät ja opastamme turvallisessa käytössä.</p>
+                    <div class="hero-cta">
+                        <a href="#services" class="btn btn-primary" data-i18n="hero_cta_primary">Tutustu palveluihin</a>
+                        <a href="#contact" class="btn btn-secondary" data-i18n="hero_cta_secondary">Varaa huolto</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="services-section section">
+            <div class="container">
+                <h2 class="section-title fade-in" data-i18n="services_title">Palvelumme</h2>
+                <div class="services-grid">
+                    <div class="service-card fade-in">
+                        <div class="service-icon-wrapper"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+                        <h3 data-i18n="srv_diag_title">PC-Diagnostiikka</h3>
+                        <p data-i18n="srv_diag_desc">Vianetsintä ja laitteiston kuntotarkastus. Selvitämme ongelman syyn nopeasti ennen korjaustoimenpiteitä.</p>
+                    </div>
+                    <div class="service-card fade-in">
+                        <div class="service-icon-wrapper"><i class="fa-solid fa-wind"></i></div>
+                        <h3 data-i18n="srv_clean_title">Pölynpoisto & Puhdistus</h3>
+                        <p data-i18n="srv_clean_desc">Laitteiston sisäinen puhdistus pölystä ja lämpötahnojen vaihto. Ehkäisee ylikuumenemista ja pidentää käyttöikää.</p>
+                    </div>
+                    <div class="service-card fade-in">
+                        <div class="service-icon-wrapper"><i class="fa-solid fa-shield-virus"></i></div>
+                        <h3 data-i18n="srv_virus_title">Virustentorjunta & Haittaohjelmat</h3>
+                        <p data-i18n="srv_virus_desc">Haittaohjelmien täydellinen poisto ja tietoturvan optimointi. Varmistamme, että järjestelмяsi on täysin turvallinen.</p>
+                    </div>
+                    <div class="service-card fade-in">
+                        <div class="service-icon-wrapper"><i class="fa-solid fa-download"></i></div>
+                        <h3 data-i18n="srv_soft_title">Ohjelmistot & Päivitykset</h3>
+                        <p data-i18n="srv_soft_desc">Käyttöjärjestelmien (Windows/Mac) ja tarvittavien apuohjelmien asennus, konfigurointi sekä kriittiset päivitykset.</p>
+                    </div>
+                    <div class="service-card fade-in">
+                        <div class="service-icon-wrapper"><i class="fa-solid fa-cubes"></i></div>
+                        <h3 data-i18n="srv_build_title">Tietokoneen kasaus osista</h3>
+                        <p data-i18n="srv_build_desc">Räätälöidyt tietokoneet pelaamiseen tai työkäyttöön. Autamme komponenttien valinnassa ja kasaamme laitteen puolestasi.</p>
+                    </div>
+                    <div class="service-card fade-in">
+                        <div class="service-icon-wrapper"><i class="fa-solid fa-gauge-high"></i></div>
+                        <h3 data-i18n="srv_opt_title">Kannettavien optimointi</h3>
+                        <p data-i18n="srv_opt_desc">Hitaan kannettavan tietokoneen nopeutus, turhien taustaprosessien poisto ja tallennustilan optimointi suorituskyvyn parantamiseksi.</p>
+                    </div>
+                    <div class="service-card fade-in">
+                        <div class="service-icon-wrapper"><i class="fa-solid fa-database"></i></div>
+                        <h3 data-i18n="srv_backup_title">Varmuuskopiointi</h3>
+                        <p data-i18n="srv_backup_desc">Tärkeiden valokuvien, tiedostojen ja dokumenttien turvallinen varmuuskopiointi pilvipalveluun tai ulkoiselle levylle.</p>
+                    </div>
+                    <div class="service-card fade-in">
+                        <div class="service-icon-wrapper"><i class="fa-solid fa-graduation-cap"></i></div>
+                        <h3 data-i18n="srv_tutor_title">Tietokoneen käytön opastus</h3>
+                        <p data-i18n="srv_tutor_desc">Henkilökohtainen ja selkeä opastus laitteen sekä digitaalisten palveluiden turvalliseen käyttöön ilman vaikeita teknisiä termejä.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="pricing" class="pricing-section section">
+            <div class="container">
+                <h2 class="section-title fade-in" data-i18n="pricing_title">Hinnasto</h2>
+                <div class="pricing-grid">
+                    <div class="pricing-card fade-in">
+                        <div class="pricing-header">
+                            <h3 data-i18n="price_p1_title">Perushuolto</h3>
+                            <div class="price">49€</div>
+                        </div>
+                        <ul class="pricing-features">
+                            <li><i class="fa-solid fa-check"></i> <span data-i18n="price_feat_diag">PC-Diagnostiikka</span></li>
+                            <li><i class="fa-solid fa-check"></i> <span data-i18n="price_feat_clean">Pölynpoisto</span></li>
+                            <li><i class="fa-solid fa-check"></i> <span data-i18n="price_feat_opt">Järjestelmän optimointi</span></li>
+                        </ul>
+                        <a href="#contact" class="btn btn-secondary pricing-btn" data-i18n="price_btn">Valitse palvelu</a>
+                    </div>
+                    <div class="pricing-card highlighted fade-in">
+                        <div class="pricing-badge" data-i18n="price_popular">Suosituin</div>
+                        <div class="pricing-header">
+                            <h3 data-i18n="price_p2_title">Tehohuolto & Turva</h3>
+                            <div class="price">89€</div>
+                        </div>
+                        <ul class="pricing-features">
+                            <li><i class="fa-solid fa-check"></i> <span data-i18n="price_feat_all_basic">Kaikki Perushuollon palvelut</span></li>
+                            <li><i class="fa-solid fa-check"></i> <span data-i18n="price_feat_virus">Virustentorjunta & puhdistus</span></li>
+                            <li><i class="fa-solid fa-check"></i> <span data-i18n="price_feat_update">Ohjelmistopäivitykset</span></li>
+                            <li><i class="fa-solid fa-check"></i> <span data-i18n="price_feat_backup">Varmuuskopioinnin määritys</span></li>
+                        </ul>
+                        <a href="#contact" class="btn btn-primary pricing-btn" data-i18n="price_btn">Valitse palvelu</a>
+                    </div>
+                    <div class="pricing-card fade-in">
+                        <div class="pricing-header">
+                            <h3 data-i18n="price_p3_title">Räätälöity tuki</h3>
+                            <div class="price">35€<span>/h</span></div>
+                        </div>
+                        <ul class="pricing-features">
+                            <li><i class="fa-solid fa-check"></i> <span data-i18n="price_feat_custom_build">Tietokoneen kasaus osista</span></li>
+                            <li><i class="fa-solid fa-check"></i> <span data-i18n="price_feat_tutor">Henkilökohtainen opastus</span></li>
+                            <li><i class="fa-solid fa-check"></i> <span data-i18n="price_feat_home">Kotikäynnit ja asennukset</span></li>
+                        </ul>
+                        <a href="#contact" class="btn btn-secondary pricing-btn" data-i18n="price_btn">Valitse palvelu</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about-section section">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-content fade-in">
+                        <span class="about-subtitle" data-i18n="about_subtitle">Fixitium Tarina</span>
+                        <h2 class="about-heading" data-i18n="about_title">Luotettavaa IT-apua vuosien kokemuksella</h2>
+                        <p data-i18n="about_p1">Fixitium syntyi halusta tarjota selkeää, rehellistä ja helposti lähestyttävää tietokonehuoltoa niin yksityisille kotitalouksille kuin pienyrityksille. Emme puhu vaikeaa nörttikieltä, vaan ratkaisemме ongelmasi ymmärrettävästi.</p>
+                        <p data-i18n="about_p2">Olipa kyseessä hidas kannettava, pelikoneen kasaus tai tietoturvahuolet, hoidamme työn tehokkaasti ja ammattitaitoisesti laatuvaatimuksista tinkimättä.</p>
+                    </div>
+                    <div class="about-visual fade-in">
+                        <div class="about-placeholder-card">
+                            <i class="fa-solid fa-laptop-medical"></i>
+                            <div class="tech-lines"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section section">
+            <div class="container">
+                <h2 class="section-title fade-in" data-i18n="contact_title">Ota yhteyttä</h2>
+                <div class="contact-wrapper">
+                    
+                    <div id="fs-status-success" class="form-status status-success" data-i18n="form_success_msg" style="display: none;"></div>
+                    <div id="fs-status-error" class="form-status status-error" data-i18n="form_error_msg" style="display: none;"></div>
+
+                    <form id="contact-form" class="contact-form fade-in">
+                        <div class="form-group">
+                            <label for="name" data-i18n="form_name">Nimi</label>
+                            <input type="text" id="name" name="Name" required placeholder="Matti Meikäläinen" data-fs-field>
+                            <span class="field-error" data-fs-error="Name"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" data-i18n="form_email">Sähköposti</label>
+                            <input type="email" id="email" name="Email" required placeholder="matti@esimerkki.fi" data-fs-field>
+                            <span class="field-error" data-fs-error="Email"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" data-i18n="form_msg">Viesti / Kuvaile ongelma</label>
+                            <textarea id="message" name="Message" rows="5" required placeholder="Kirjoita tähän..." data-fs-field></textarea>
+                            <span class="field-error" data-fs-error="Message"></span>
+                        </div>
+                        <button type="submit" id="form-submit-btn" class="btn btn-primary" data-i18n="form_btn" data-fs-submit-btn>Lähetä viestipyyntö</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container footer-container">
+            <p>&copy; 2026 Fixitium. <span data-i18n="footer_rights">Kaikki oikeudet pidätetään.</span></p>
+        </div>
+    </footer>
+
+    <script>
+      window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+      formspree('initForm', { 
+        formElement: '#contact-form', 
+        formId: 'xaqkawnq',
+        onSuccess: function() {
+            const form = document.getElementById('contact-form');
+            const successMsg = document.getElementById('fs-status-success');
+            const errorMsg = document.getElementById('fs-status-error');
+            
+            form.style.display = 'none';
+            errorMsg.style.display = 'none';
+            successMsg.style.display = 'block';
+        },
+        onError: function() {
+            const errorMsg = document.getElementById('fs-status-error');
+            errorMsg.style.display = 'block';
+        }
+      });
+    </script>
+    <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+
+    <script src="js/lang.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

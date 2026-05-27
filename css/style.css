@@ -1,0 +1,63 @@
+/* ==========================================================================
+   FORM STATUS & VALIDATION STYLING
+   ========================================================================== */
+.form-status {
+    padding: 1.25rem;
+    border-radius: var(--border-radius-s);
+    margin-bottom: 2rem;
+    font-weight: 600;
+    font-size: 1rem;
+    text-align: center;
+    animation: fadeInStatus 0.4s ease-out forwards;
+}
+
+.status-success {
+    background-color: rgba(16, 185, 129, 0.15);
+    border: 1px solid #10b981;
+    color: #10b981;
+}
+
+body.light-theme .status-success {
+    background-color: rgba(16, 185, 129, 0.1);
+}
+
+.status-error {
+    background-color: rgba(239, 68, 68, 0.15);
+    border: 1px solid #ef4444;
+    color: #ef4444;
+}
+
+body.light-theme .status-error {
+    background-color: rgba(239, 68, 68, 0.1);
+}
+
+.field-error {
+    display: block;
+    color: #ef4444;
+    font-size: 0.85rem;
+    margin-top: 0.35rem;
+    font-weight: 500;
+}
+
+input[aria-invalid="true"], textarea[aria-invalid="true"] {
+    border-color: #ef4444 !important;
+    box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.15) !important;
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+@keyframes fadeInStatus {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
