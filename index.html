@@ -180,23 +180,25 @@
                     <div id="fs-status-success" class="form-status status-success" data-i18n="form_success_msg" style="display: none;"></div>
                     <div id="fs-status-error" class="form-status status-error" data-i18n="form_error_msg" style="display: none;"></div>
 
-                    <form id="contact-form" class="contact-form fade-in">
+                    <!-- ОБНОВЛЕННАЯ ФОРМА ПОД WEB3FORMS -->
+                    <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" class="contact-form fade-in">
+                        
+                        <!-- Ваш уникальный ключ доступа Web3Forms -->
+                        <input type="hidden" name="access_key" value="50ac8d5a-c191-4b9c-9f77-ba9994c32057">
+                        
                         <div class="form-group">
                             <label for="name" data-i18n="form_name">Nimi</label>
-                            <input type="text" id="name" name="Name" required placeholder="Matti Meikäläinen" data-fs-field>
-                            <span class="field-error" data-fs-error="Name"></span>
+                            <input type="text" id="name" name="name" required placeholder="Matti Meikäläinen">
                         </div>
                         <div class="form-group">
                             <label for="email" data-i18n="form_email">Sähköposti</label>
-                            <input type="email" id="email" name="Email" required placeholder="matti@esimerkki.fi" data-fs-field>
-                            <span class="field-error" data-fs-error="Email"></span>
+                            <input type="email" id="email" name="email" required placeholder="matti@esimerkki.fi">
                         </div>
                         <div class="form-group">
                             <label for="message" data-i18n="form_msg">Viesti / Kuvaile ongelma</label>
-                            <textarea id="message" name="Message" rows="5" required placeholder="Kirjoita tähän..." data-fs-field></textarea>
-                            <span class="field-error" data-fs-error="Message"></span>
+                            <textarea id="message" name="message" rows="5" required placeholder="Kirjoita tähän..."></textarea>
                         </div>
-                        <button type="submit" id="form-submit-btn" class="btn btn-primary" data-i18n="form_btn" data-fs-submit-btn>Lähetä viestipyyntö</button>
+                        <button type="submit" id="form-submit-btn" class="btn btn-primary" data-i18n="form_btn">Lähetä viestipyyntö</button>
                     </form>
                 </div>
             </div>
@@ -207,29 +209,53 @@
         <div class="container footer-container">
             <p>&copy; 2026 Fixitium. <span data-i18n="footer_rights">Kaikki oikeudet pidätetään.</span></p>
         </div>
-    </footer>
+    </footer
 
+    <!-- СКРИПТ AJAX ОТПРАВКИ ДЛЯ WEB3FORMS (БЕЗ ПЕРЕЗАГРУЗКИ) -->
     <script>
-      window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
-      formspree('initForm', { 
-        formElement: '#contact-form', 
-        formId: 'xaqkawnq',
-        onSuccess: function() {
-            const form = document.getElementById('contact-form');
-            const successMsg = document.getElementById('fs-status-success');
-            const errorMsg = document.getElementById('fs-status-error');
-            
-            form.style.display = 'none';
-            errorMsg.style.display = 'none';
-            successMsg.style.display = 'block';
-        },
-        onError: function() {
-            const errorMsg = document.getElementById('fs-status-error');
-            errorMsg.style.display = 'block';
-        }
-      });
+        const form = document.getElementById('contact-form');
+        const successMsg = document.getElementById('fs-status-success');
+        const errorMsg = document.getElementById('fs-status-error');
+        const submitBtn = document.getElementById('form-submit-btn');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            submitBtn.disabled = true;
+            submitBtn.innerText = "Lähetetään..."; // Временный текст отправки
+
+            const formData = new FormData(form);
+            const object = Object.fromEntries(formData);
+            const json = JSON.stringify(object);
+
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: json
+            })
+            .then(async (response) => {
+                let res = await response.json();
+                if (response.status == 200) {
+                    form.style.display = 'none';
+                    errorMsg.style.display = 'none';
+                    successMsg.style.display = 'block';
+                } else {
+                    console.log(response);
+                    errorMsg.style.display = 'block';
+                    submitBtn.disabled = false;
+                    submitBtn.removeAttribute('data-i18n'); // сброс локализации для кастомного текста
+                    submitBtn.innerText = "Virhe / Error";
+                }
+            })
+            .catch(error => {
+                console.log(error);
+                errorMsg.style.display = 'block';
+                submitBtn.disabled = false;
+            });
+        });
     </script>
-    <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 
     <script src="js/lang.js"></script>
     <script src="js/main.js"></script>
